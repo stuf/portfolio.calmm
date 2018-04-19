@@ -1,0 +1,45 @@
+@font-face {
+  font-family: 'woodford_bourneregular';
+  src: url('./assets/fonts/woodfordbourne-regular-webfont.eot');
+  src: url('./assets/fonts/woodfordbourne-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('./assets/fonts/woodfordbourne-regular-webfont.woff2') format('woff2'),
+  url('./assets/fonts/woodfordbourne-regular-webfont.woff') format('woff'),
+  url('./assets/fonts/woodfordbourne-regular-webfont.ttf') format('truetype'),
+  url('./assets/fonts/woodfordbourne-regular-webfont.svg#woodford_bourneregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'woodford_bourneregular', 'Woodford Bourne PRO', sans-serif;
+}
+
+a {
+  display: inline-block;
+  position: relative;
+}
+
+a em {
+  font-style: normal;
+}
+
+a em:after {
+  position: absolute;
+  content: '';
+  left: 0;
+  right: 0;
+  top: 50%;
+  bottom: 0;
+	/* background: #00B0FF; */
+  z-index: -1;
+}
+
+a,
+a:visited {
+  color: rgba(0, 0, 0, 0.87);
+  font-weight: 300;
+}

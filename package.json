@@ -1,0 +1,32 @@
+{
+  "name": "portfolio-calmm",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.18.0",
+    "contentful": "^6.0.0",
+    "karet": "^3.1.0",
+    "karet.util": "https://github.com/calmm-js/karet.util#next-generation",
+    "kefir": "^3.8.3",
+    "kefir.combines": "^4.3.0",
+    "normalize.css": "^8.0.0",
+    "partial.lenses": "^13.9.0",
+    "ramda": "^0.25.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "optionalDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/kefir": "^3.7.0",
+    "@types/ramda": "^0.25.22",
+    "@types/react": "^16.3.11"
+  }
+}

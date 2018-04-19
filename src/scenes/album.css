@@ -1,0 +1,47 @@
+
+.album-detail .go-back {
+  position: absolute;
+  left: 1rem;
+  top: 3rem;
+  background: #fff;
+  border: 0;
+  font-size: 2vh;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
+.album-detail .go-back:hover {
+	background-color: #0091EA;
+  color: #fff;
+}
+
+.album-detail header {
+  text-align: center;
+}
+
+.album-detail header h1 {
+  font-family: 'Woodford Bourne PRO', sans-serif;
+  font-weight: 300;
+  font-size: 5vh;
+  margin: 3rem 0;
+}
+
+.album-detail ul {
+  list-style: none;
+  padding: 0;
+}
+
+.album-detail ul li:not(:first-child) {
+  margin-top: 3rem;
+}
+
+.album-detail img {
+  max-width: 100%;
+}
+
+.album-detail ficaption {
+  display: none;
+}
+

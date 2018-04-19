@@ -1,0 +1,14 @@
+.app-root {}
+
+.app-root footer {
+  text-align: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  margin-bottom: 3rem;
+}
+
+.content {
+  width: 60vw;
+  margin: 0 auto;
+}
+

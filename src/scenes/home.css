@@ -1,0 +1,24 @@
+.albums {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 3rem 0;
+}
+
+.albums ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+}
+
+.album-item {
+  text-align: center;
+  font-size: 2.5vh;
+}
+
+.album-item .cover img {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
