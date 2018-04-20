@@ -1,12 +1,13 @@
 import * as React from 'karet';
 import * as U from 'karet.util';
+import * as R from 'ramda';
 
 import { Link } from '../components/router';
 import * as M from './meta';
 import './home.css';
 
-const coverImageUrl = atom => U.seq(atom, M.firstImageIn, M.coverImageIn);
-const coverImageTitle = atom => U.seq(atom, M.firstImageIn, M.titleIn);
+const coverImageUrl = R.compose(M.coverImageIn, M.firstImageIn);
+const coverImageTitle = R.compose(M.titleIn, M.firstImageIn);
 
 const HomeScene = ({ match, history }, { state }) =>
   <section className="albums content">
