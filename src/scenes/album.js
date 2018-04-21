@@ -63,7 +63,7 @@ const AlbumScene = ({ match, history }, { state }) => {
           {U.seq(images,
                  U.skipUnless(R.identity),
                  U.mapElems((it, idx) =>
-                     <li key={idx}>
+                   <li key={idx}>
                      <a href={U.string`${match.url}/${M.idIn(it)}`}
                         onClick={U.actions(preventDefault, setOverlay(it))}>
                        <figure>
