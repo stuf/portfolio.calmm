@@ -22,7 +22,6 @@
 }
 
 .album-detail header h1 {
-  font-family: 'Woodford Bourne PRO', sans-serif;
   font-weight: 300;
   font-size: 5vh;
   margin: 3rem 0;
@@ -43,5 +42,29 @@
 
 .album-detail ficaption {
   display: none;
+}
+
+.album-overlay-content {
+  z-index: 2;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.album-overlay-content img {
+  width: 80vw;
+  box-shadow: 0 1rem 6rem rgba(0, 0, 0, 0.3);
+}
+
+.album-overlay-shadow {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.6);
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
 }
 

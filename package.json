@@ -5,7 +5,7 @@
   "dependencies": {
     "contentful": "^6.0.0",
     "karet": "^3.1.0",
-    "karet.util": "https://github.com/calmm-js/karet.util#next-generation",
+    "karet.util": "^0.18.0",
     "kefir": "^3.8.3",
     "normalize.css": "^8.0.0",
     "partial.lenses": "^13.9.0",
@@ -16,6 +16,7 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
+    "deploy": "npm run build && cp -v build/index.html build/200.html && surge ./build calmm-gallery.surge.sh",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",

@@ -1,6 +1,7 @@
 import * as U from 'karet.util';
 import * as L from 'partial.lenses';
 
+export const idIn = U.view('id');
 export const slugIn = U.view('slug');
 export const nameIn = U.view('name');
 export const titleIn = U.view('title');

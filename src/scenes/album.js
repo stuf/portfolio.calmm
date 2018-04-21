@@ -7,12 +7,24 @@ import { getAlbums } from '../api';
 import * as M from './meta';
 import './album.css';
 
-const AlbumScene = ({ match, history }, { state }) => {
-  const album =
-    U.view(['albums',
-            L.find(R.whereEq({ slug: match.params.title }))], state);
+const overlayIdIn = U.view('overlay');
 
+const AlbumScene = ({ match, history }, { state }) => {
+  const slug = match.params.title;
+  const album = U.view(['albums', L.find(R.whereEq({ slug }))], state);
   const images = M.imagesIn(album);
+
+  const isNil = U.liftRec(R.isNil);
+
+  const overlay = overlayIdIn(state);
+
+  const findCurrentImage = (id, imgs) => L.get(L.find(R.whereEq({ id })), imgs);
+  const overlayImage = U.combines(overlay, images, findCurrentImage);
+
+  //
+
+  const preventDefault = e => e.preventDefault();
+  const setOverlay = U.liftRec(it => e => overlay.set(it.id));
 
   const ensureAlbums =
     U.seq(M.albumsIn(state),
@@ -23,6 +35,19 @@ const AlbumScene = ({ match, history }, { state }) => {
   return (
     <article className="album-detail content">
       {ensureAlbums}
+
+      {U.unless(isNil(overlayImage),
+        <React.Fragment>
+          <div className="album-overlay-shadow"
+               onClick={() => overlay.set(null)}>
+            <div className="album-overlay-content">
+              <picture>
+                <img src={M.fileUrlIn(overlayImage)}
+                     alt={M.nameIn(overlayImage)} />
+              </picture>
+            </div>
+          </div>
+        </React.Fragment>)}
 
       <button className="go-back"
               onClick={() => history.goBack()}>
@@ -38,10 +63,13 @@ const AlbumScene = ({ match, history }, { state }) => {
           {U.seq(images,
                  U.skipUnless(R.identity),
                  U.mapElems((it, idx) =>
-                   <li key={idx}>
-                     <figure>
-                       <img src={M.lowQualityUrlIn(M.fileUrlIn(it))} alt={M.titleIn(it)} />
-                     </figure>
+                     <li key={idx}>
+                     <a href={U.string`${match.url}/${M.idIn(it)}`}
+                        onClick={U.actions(preventDefault, setOverlay(it))}>
+                       <figure>
+                         <img src={M.lowQualityUrlIn(M.fileUrlIn(it))} alt={M.titleIn(it)} />
+                       </figure>
+                     </a>
                    </li>))}
          </ul>
        </div>
