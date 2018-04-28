@@ -1,0 +1,40 @@
+.async-image-overlay-content {
+  z-index: 2;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.async-image-overlay-content img {
+  width: 80vw;
+  box-shadow: 0 1rem 6rem rgba(0, 0, 0, 0.3);
+}
+
+.async-image-overlay-shadow {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.6);
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.async-image-overlay-shadow.loaded .album-overlay-content {
+  opacity: 1;
+}
+
+.async-image-overlay-shadow .album-overlay-content {
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.async-image {
+  border: solid 2px #f00;
+}
+
+.async-image.loaded {
+  border: solid 4px #00f;
+}

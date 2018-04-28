@@ -5,6 +5,7 @@ import * as L from 'partial.lenses';
 
 import { getAlbums } from '../api';
 import * as M from './meta';
+import AsyncImage from '../components/async-image';
 import './album.css';
 
 const overlayIdIn = U.view('overlay');
@@ -37,17 +38,8 @@ const AlbumScene = ({ match, history }, { state }) => {
       {ensureAlbums}
 
       {U.unless(isNil(overlayImage),
-        <React.Fragment>
-          <div className="album-overlay-shadow"
-               onClick={() => overlay.set(null)}>
-            <div className="album-overlay-content">
-              <picture>
-                <img src={M.fileUrlIn(overlayImage)}
-                     alt={M.nameIn(overlayImage)} />
-              </picture>
-            </div>
-          </div>
-        </React.Fragment>)}
+         <AsyncImage url={M.fileUrlIn(overlayImage)}
+                     hideFn={() => overlay.set(null)} />)}
 
       <button className="go-back"
               onClick={() => history.goBack()}>
